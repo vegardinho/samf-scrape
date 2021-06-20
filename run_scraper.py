@@ -1,5 +1,5 @@
 import mechanicalsoup as ms
-import keyring
+# import keyring
 import send_email
 
 BROWSER = ms.Browser()
@@ -8,12 +8,13 @@ URL = "https://www.samfundet.no/arrangement/2830-svommebasseng-storsalen"
 
 
 def main():
-    try:
-        for ACC in ACCOUNTS:
-            find_event()
-            # log_in(ACC)
-    except Exception as e:
-        send_mail("{}".format(e))
+    # try:
+    #     for ACC in ACCOUNTS:
+    #         find_event()
+    #         # log_in(ACC)
+    # except Exception as e:
+    #     send_mail("{}".format(e))
+    find_event()
 
 def send_mail(text):
     subj = "ERROR: Samf-scraper"
