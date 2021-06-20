@@ -3,30 +3,23 @@ import keyring
 
 BROWSER = ms.Browser()
 ACCOUNTS = ["landsverk.vegard@gmail.com"]
-URL = "https://medlem.samfundet.no/"
+URL = "https://www.samfundet.no/arrangement/2830-svommebasseng-storsalen"
 
 
 def main():
     for ACC in ACCOUNTS:
-        # find_event()
-        log_in(ACC)
-
-def get_site(url):
-    login_page = BROWSER.get(URL)
-    return login_page.soup
-
+        find_event()
+        # log_in(ACC)
 
 def find_event():
-    site = get_site("https://www.samfundet.no/arrangement/2830-svommebasseng-storsalen")
-    print(site.prettify())
 
     #TODO: hvis ikke html for knapp eksisterer: exit
 
-    buy_btn = login_html.find("div", class_="purchase-button")
+    buy_btn = site.find("div", class_="purchase-button")
     print(buy_btn)
 
 def log_in(email):
-    site = get_site(URL)
+    site = BROWSER.get("https://medlem.samfundet.no/").soup
     form = site.select("form")[0]
 
     pswd = keyring.get_password("Samfundet", email)
