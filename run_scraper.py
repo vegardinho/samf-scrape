@@ -1,6 +1,7 @@
 import mechanicalsoup as ms
 # import keyring
 import send_email
+from flask import Flask
 
 BROWSER = ms.Browser()
 ACCOUNTS = ["landsverk.vegard@gmail.com"]
