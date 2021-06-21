@@ -1,1 +1,1 @@
-web: python server.py
+worker: python run_scraper.py
