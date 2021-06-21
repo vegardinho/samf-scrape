@@ -17,18 +17,16 @@ def main():
     #     send_mail("{}".format(e))
     find_event()
 
-def send_mail(text):
-    subj = "ERROR: Samf-scraper"
-    send_email.send_email("landsverk.vegard@gmail.com", "landsverk.vegard@gmail.com",
-                          "Gmail - epostskript (gcal)", subj, text)
-
 def find_event():
     site = BROWSER.get(URL).soup
 
     #TODO: hvis ikke html for knapp eksisterer: exit
 
     buy_btn = site.find("div", class_="purchase-button")
-    print(buy_btn)
+
+    subj = "ERROR: Samf-scraper"
+    send_email.send_email("landsverk.vegard@gmail.com", "landsverk.vegard@gmail.com",
+                          "Gmail - epostskript (gcal)", subj, buy_btn)
 
 def log_in(email):
     site = BROWSER.get("https://medlem.samfundet.no/").soup
